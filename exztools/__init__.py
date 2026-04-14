@@ -1,16 +1,12 @@
 """
-> Copyright (C) 2025 devgagan - https://github.com/devgagan/devgagantools
+> Copyright (C) 2025 Exztools - https://github.com/Exztools/exztools
 """
 
-import sys
 import os
-import pathlib
 import time
 import logging
 
-sys.path.insert(0, f"{pathlib.Path(__file__).parent.resolve()}")
-
-from spylib import upload_file, download_file
+from .exzlib import upload_file, download_file
 
 
 class Timer:

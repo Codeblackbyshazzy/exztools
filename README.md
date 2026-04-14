@@ -1,16 +1,16 @@
 <div align="center">
-  <h1>devgagantools</h1>
+  <h1>Exztools</h1>
   
   <p>
-    <img src="https://img.shields.io/pypi/v/devgagantools?color=blue&style=flat-square" alt="PyPI Version">
-    <img src="https://img.shields.io/pypi/pyversions/devgagantools?style=flat-square" alt="Python Versions">
-    <img src="https://img.shields.io/github/license/devgaganin/devgagantools?style=flat-square" alt="License">
-    <img src="https://img.shields.io/pypi/dm/devgagantools?style=flat-square&color=brightgreen" alt="Downloads">
+    <img src="https://img.shields.io/pypi/v/exztools?color=blue&style=flat-square" alt="PyPI Version">
+    <img src="https://img.shields.io/pypi/pyversions/exztools?style=flat-square" alt="Python Versions">
+    <img src="https://img.shields.io/github/license/Exztools/exztools?style=flat-square" alt="License">
+    <img src="https://img.shields.io/pypi/dm/exztools?style=flat-square&color=brightgreen" alt="Downloads">
   </p>
 
 </div>
 
-`devgagantools` is a Python library designed for fast and efficient file upload and download operations. It includes features like progress tracking, customizable file names, and human-readable file size formatting. The library is asynchronous and integrates seamlessly with Telegram bots or other projects requiring file management.
+`exztools` is a Python library designed for fast and efficient file upload and download operations. It includes features like progress tracking, customizable file names, and human-readable file size formatting. The library is asynchronous and integrates seamlessly with Telegram bots or other projects requiring file management.
 
 ---
 
@@ -29,7 +29,7 @@
 To install the library once it's published to PyPI, use:
 
 ```bash
-pip install devgagantools
+pip install exztools
 ```
 
 ---
@@ -38,7 +38,7 @@ pip install devgagantools
 
 ### 1. Fast Download
 
-You can use the `devgagantools` download functionality by providing the required parameters:
+You can use the `exztools` download functionality by providing the required parameters:
 
 - **`client`**: The Telegram client instance (e.g., Pyrogram Client).  
 - **`msg`**: The Telegram message containing the file to download.  
@@ -50,7 +50,7 @@ You can use the `devgagantools` download functionality by providing the required
 #### Example
 
 ```python
-download_location = await devgagantools.fast_download(
+download_location = await exztools.fast_download(
     client=client,
     msg=message,
     reply=reply_message,  # Optional
@@ -76,7 +76,7 @@ You can upload files using the following arguments:
 #### Example
 
 ```python
-uploaded_file = await devgagantools.fast_upload(
+uploaded_file = await exztools.fast_upload(
     client=client,
     file_location="my_files/custom_filename.mp4",
     reply=reply_message,  # Optional
@@ -94,6 +94,7 @@ You can use a custom progress bar function for more control over how the progres
 
 - **`done`**: Bytes downloaded or uploaded so far.  
 - **`total`**: Total size of the file in bytes.  
+- **`progress_bar_function`** *(Optional)*: A function to customize the progress bar display.
 
 Example of a custom progress bar function:
 
@@ -112,7 +113,7 @@ Pass this function as the `progress_bar_function` argument in the download or up
 The library also provides a utility to convert file sizes into human-readable formats:
 
 ```python
-from devgagantools import human_readable_size
+from exztools import human_readable_size
 
 size = human_readable_size(1048576)  # Output: '1.00 MB'
 ```
@@ -141,4 +142,4 @@ Contributions are welcome! Feel free to fork the repository, make your changes, 
 
 
 ## Contacts
-- Contact us on telegram for any query [Team Spy](https://team_spy_pro)
+- Contact us on telegram for any query [Exztools](https://t.me/Exztools)
