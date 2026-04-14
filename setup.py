@@ -9,7 +9,7 @@ setup(
     name="exztools",
     version="4.0.1",
     description="This repository aimed to be fast uploading and fast downloading via Telethon (user and bots both supported)",
-    packages=find_packages(),
+    packages=["exztools", "devgagantools"],
     install_requires=["telethon", "telethon-tgcrypto", "aiofiles"],
     classifiers=[
         "License :: OSI Approved :: MIT License",
