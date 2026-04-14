@@ -26,7 +26,13 @@
 
 ## Installation
 
-To install the library once it's published to PyPI, use:
+As the package is not yet on PyPI, you can install it directly from GitHub:
+
+```bash
+pip install git+https://github.com/Exztools/exztools.git
+```
+
+Once published to PyPI, you can use:
 
 ```bash
 pip install exztools
@@ -40,23 +46,27 @@ pip install exztools
 
 You can use the `exztools` download functionality by providing the required parameters:
 
-- **`client`**: The Telegram client instance (e.g., Pyrogram Client).  
+- **`client`**: The Telegram client instance (Telethon Client).  
 - **`msg`**: The Telegram message containing the file to download.  
 - **`reply`** *(Optional)*: The reply message to update with progress.  
 - **`download_folder`** *(Optional)*: Folder where the file will be saved (default: `downloads/`).  
-- **`name`** *(Optional)*: A custom filename for the downloaded file (default: original file name).  
 - **`progress_bar_function`** *(Optional)*: A function to customize the progress bar display.
+- **`name`** *(Optional)*: A custom filename for the downloaded file (default: original file name).  
+- **`user_id`** *(Optional)*: User identifier for isolation (Recommended for concurrent downloads).
 
 #### Example
 
 ```python
+import exztools
+
 download_location = await exztools.fast_download(
     client=client,
     msg=message,
     reply=reply_message,  # Optional
     download_folder="my_files/",  # Optional
+    progress_bar_function=None, # Optional
     name="custom_filename.mp4",  # Optional
-    user_id=1234 # must pass int
+    user_id=1234 # Recommended
 )
 print(f"File downloaded to: {download_location}")
 ```
@@ -67,21 +77,25 @@ print(f"File downloaded to: {download_location}")
 
 You can upload files using the following arguments:
 
-- **`client`**: The Telegram client instance (e.g., Pyrogram Client).  
+- **`client`**: The Telegram client instance (Telethon Client).  
 - **`file_location`**: The local file path to upload.  
 - **`reply`** *(Optional)*: The reply message to update with progress.  
 - **`name`** *(Optional)*: A custom name for the uploaded file (default: original file name).  
 - **`progress_bar_function`** *(Optional)*: A function to customize the progress bar display.
+- **`user_id`** *(Optional)*: User identifier for filename prefix (Recommended for isolation).
 
 #### Example
 
 ```python
+import exztools
+
 uploaded_file = await exztools.fast_upload(
     client=client,
     file_location="my_files/custom_filename.mp4",
     reply=reply_message,  # Optional
     name="uploaded_file.mp4",  # Optional
-    user_id=12344 # must pass
+    progress_bar_function=None, # Optional
+    user_id=12344 # Recommended
 )
 print(f"File uploaded successfully: {uploaded_file}")
 ```
@@ -94,7 +108,6 @@ You can use a custom progress bar function for more control over how the progres
 
 - **`done`**: Bytes downloaded or uploaded so far.  
 - **`total`**: Total size of the file in bytes.  
-- **`progress_bar_function`** *(Optional)*: A function to customize the progress bar display.
 
 Example of a custom progress bar function:
 
